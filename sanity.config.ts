@@ -1,23 +1,15 @@
 // sanity.config.ts
-import { defineConfig } from 'sanity'
-import { structureTool } from 'sanity/structure'
-import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './schemaTypes'
-import structure from './structure'
+import {defineConfig} from 'sanity'
+import {structureTool} from 'sanity/structure' // default structure tool, no custom builder
 
 export default defineConfig({
   name: 'default',
   title: 'Futuro Hub',
-
   projectId: 'fo6n8ceo',
   dataset: 'production',
-
-  plugins: [
-    structureTool({ structure }),
-    visionTool(),
-  ],
-
+  basePath: '/', // explicit root
+  plugins: [structureTool()],
   schema: {
-    types: schemaTypes,
+    types: [], // temporarily empty; we'll restore your schema after we confirm prod works
   },
 })
