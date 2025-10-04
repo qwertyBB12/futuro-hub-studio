@@ -1,14 +1,10 @@
-# netlify.toml
 [build]
   command = "npm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20.11.1"   # <-- set this to EXACT output of: node -v
+  NODE_VERSION = "20.19.0"       # or "22.12.0"
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Turn OFF Netlify post-processing. We don't want it touching Sanity's JS bundles.
 [build.processing]
   skip_processing = true
-
-# (If your site already has Asset Optimization toggled in the UI, also disable it there)
